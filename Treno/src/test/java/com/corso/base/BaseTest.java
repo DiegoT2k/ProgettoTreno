@@ -4,10 +4,12 @@ import com.corso.dao.TipologiaDao;
 import com.corso.dao.TrenoDao;
 import com.corso.dao.UtenteDao;
 import com.corso.dao.VagoneDao;
+import com.corso.dao.ValutazioneDao;
 import com.corso.model.Fabbrica;
 import com.corso.model.Tipologia;
 import com.corso.model.Treno;
 import com.corso.model.Utente;
+import com.corso.model.Valutazione;
 import com.corso.model.abs_vagone.Vagone;
 import com.corso.model.vagone.impl.LocomotivaItalo;
 import com.corso.model.vagone.impl.LocomotivaTrenord;
@@ -83,10 +85,21 @@ protected static void stampa(String nomeMetodoTest) {
 			tipologia.setTipo("Locomotiva");
 			return tipologia;
 		}
-		
+
 		protected static void getSetVagone(Treno treno) {
 			System.out.println(treno.getVagoni());
 		   }
+
+		protected static Valutazione getVoto(ValutazioneDao dao) {
+			Valutazione voto = new Valutazione();
+			voto.setVoto(4);
+			voto.setUtente(dao.findUtente(1));
+			voto.setTreno(dao.findTreno(3));
+			
+			return voto;
+			
+		}
+
 }
 
 
