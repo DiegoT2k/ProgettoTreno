@@ -29,6 +29,11 @@ public class TrenoDaoImpl implements TrenoDao{
 	public Fabbrica find(String sigla) {
 		return manager.find(Fabbrica.class, sigla);
 	}
+
+	@Override
+	public Treno findTreno(int id) {
+		return manager.find(Treno.class, id);
+	}
 	
 	
 
