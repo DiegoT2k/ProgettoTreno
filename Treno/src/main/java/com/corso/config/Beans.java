@@ -14,8 +14,10 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.corso.dao.FabbricaDao;
+import com.corso.dao.TipologiaDao;
 import com.corso.dao.TrenoDao;
 import com.corso.dao.impl.FabbricaDaoImpl;
+import com.corso.dao.impl.TipologiaDaoImpl;
 import com.corso.dao.impl.TrenoDaoImpl;
 import com.corso.dao.impl.UtenteDaoImpl;
 import com.corso.dao.impl.VagoneDaoImpl;
@@ -96,6 +98,12 @@ public FabbricaDao getFabbricaDao() {
 @Bean(name="vagoneDao")
 public VagoneDao getVagoneDao() {
 	VagoneDao dao = new VagoneDaoImpl();
+	return dao;
+}
+
+@Bean(name="tipologiaDao")
+public TipologiaDao getTipologiaDao() {
+	TipologiaDao dao = new TipologiaDaoImpl();
 	return dao;
 }
 

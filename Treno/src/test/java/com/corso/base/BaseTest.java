@@ -1,13 +1,16 @@
 package com.corso.base;
 
+import com.corso.dao.TipologiaDao;
 import com.corso.dao.TrenoDao;
 import com.corso.dao.UtenteDao;
 import com.corso.dao.VagoneDao;
 import com.corso.model.Fabbrica;
+import com.corso.model.Tipologia;
 import com.corso.model.Treno;
 import com.corso.model.Utente;
 import com.corso.model.abs_vagone.Vagone;
 import com.corso.model.vagone.impl.LocomotivaItalo;
+import com.corso.model.vagone.impl.LocomotivaTrenord;
 
 public class BaseTest {
 
@@ -48,6 +51,7 @@ protected static void stampa(String nomeMetodoTest) {
 			System.out.println(utente.getTreni());
 		   }	
 		
+		/**
 		protected static Vagone getVagone(VagoneDao dao) {
 			Vagone locomotivaItalo = new LocomotivaItalo();
 
@@ -59,6 +63,25 @@ protected static void stampa(String nomeMetodoTest) {
 			locomotivaItalo.setTipo("Locomotiva");
 			
 			return locomotivaItalo;
+		}
+		**/
+		protected static Vagone getVagone(VagoneDao dao) {
+			Vagone locomotivaTrenord = new LocomotivaTrenord();
+
+			locomotivaTrenord.setId_treno(dao.find(4));
+			locomotivaTrenord.setLunghezza(59);
+			locomotivaTrenord.setPeso(11);
+			locomotivaTrenord.setPrezzo(53);
+			locomotivaTrenord.setFabbrica(dao.find("TN"));
+			locomotivaTrenord.setTipo("Locomotiva");
+			
+			return locomotivaTrenord;
+		}
+		
+		protected static Tipologia getTipologia() {
+			Tipologia tipologia = new Tipologia();
+			tipologia.setTipo("Locomotiva");
+			return tipologia;
 		}
 }
 
