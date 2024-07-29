@@ -28,8 +28,12 @@ public class Treno {
 			mappedBy = "id_treno",
 			fetch = FetchType.EAGER
 			)
-	private Set<Vagone> id_vagone;
+	private Set<Vagone> vagoni;
 	
+	public Set<Vagone> getVagoni() {
+		return vagoni;
+	}
+
 	public int getBiglietti() {
 		return biglietti;
 	}
