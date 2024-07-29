@@ -21,9 +21,10 @@ import com.corso.dao.impl.TipologiaDaoImpl;
 import com.corso.dao.impl.TrenoDaoImpl;
 import com.corso.dao.impl.UtenteDaoImpl;
 import com.corso.dao.impl.VagoneDaoImpl;
-import com.corso.model.Fabbrica;
+import com.corso.dao.impl.ValutazioneDaoImpl;
 import com.corso.dao.UtenteDao;
 import com.corso.dao.VagoneDao;
+import com.corso.dao.ValutazioneDao;
 
 @Configuration
 @ComponentScan(basePackages="com.corso.spring.annotation")
@@ -104,6 +105,12 @@ public VagoneDao getVagoneDao() {
 @Bean(name="tipologiaDao")
 public TipologiaDao getTipologiaDao() {
 	TipologiaDao dao = new TipologiaDaoImpl();
+	return dao;
+}
+
+@Bean(name="valutazioneDao")
+public ValutazioneDao getValutazione() {
+	ValutazioneDao dao = new ValutazioneDaoImpl();
 	return dao;
 }
 
