@@ -18,8 +18,10 @@ import com.corso.dao.TrenoDao;
 import com.corso.dao.impl.FabbricaDaoImpl;
 import com.corso.dao.impl.TrenoDaoImpl;
 import com.corso.dao.impl.UtenteDaoImpl;
+import com.corso.dao.impl.VagoneDaoImpl;
 import com.corso.model.Fabbrica;
 import com.corso.dao.UtenteDao;
+import com.corso.dao.VagoneDao;
 
 @Configuration
 @ComponentScan(basePackages="com.corso.spring.annotation")
@@ -88,6 +90,12 @@ public TrenoDao getTrenoDao (){
 @Bean(name="fabbricaDao")
 public FabbricaDao getFabbricaDao() {
 	FabbricaDao dao = new FabbricaDaoImpl();
+	return dao;
+}
+
+@Bean(name="vagoneDao")
+public VagoneDao getVagoneDao() {
+	VagoneDao dao = new VagoneDaoImpl();
 	return dao;
 }
 

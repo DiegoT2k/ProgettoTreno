@@ -12,6 +12,7 @@ import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 import com.corso.dao.Dao;
 import com.corso.model.Bean;
+import com.corso.model.Fabbrica;
 
 
 
@@ -19,7 +20,6 @@ public /*abstract*/ class DaoImpl implements Dao {
 	
 	@PersistenceContext
 	EntityManager manager;
-	
 	
 
 	public  List<?> all(Class c) {

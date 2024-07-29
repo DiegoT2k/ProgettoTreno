@@ -2,9 +2,12 @@ package com.corso.base;
 
 import com.corso.dao.TrenoDao;
 import com.corso.dao.UtenteDao;
+import com.corso.dao.VagoneDao;
 import com.corso.model.Fabbrica;
 import com.corso.model.Treno;
 import com.corso.model.Utente;
+import com.corso.model.abs_vagone.Vagone;
+import com.corso.model.vagone.impl.LocomotivaItalo;
 
 public class BaseTest {
 
@@ -44,6 +47,19 @@ protected static void stampa(String nomeMetodoTest) {
 		protected static void getSetTreni(Utente utente) {
 			System.out.println(utente.getTreni());
 		   }	
+		
+		protected static Vagone getVagone(VagoneDao dao) {
+			Vagone locomotivaItalo = new LocomotivaItalo();
+
+			locomotivaItalo.setId_treno(dao.find(3));
+			locomotivaItalo.setLunghezza(100);
+			locomotivaItalo.setPeso(10);
+			locomotivaItalo.setPrezzo(24);
+			locomotivaItalo.setFabbrica(dao.find("IT"));
+			locomotivaItalo.setTipo("Locomotiva");
+			
+			return locomotivaItalo;
+		}
 }
 
 
