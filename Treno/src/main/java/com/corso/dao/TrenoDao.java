@@ -13,5 +13,7 @@ public interface TrenoDao {
 	
 	public Utente find(int id);
 	
+	public Treno findTreno(int id);
+	
 	public Fabbrica find(String sigla);
 }
