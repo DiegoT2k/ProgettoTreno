@@ -94,11 +94,15 @@ protected static void stampa(String nomeMetodoTest) {
 			Valutazione voto = new Valutazione();
 			voto.setVoto(4);
 			voto.setUtente(dao.findUtente(1));
-			voto.setTreno(dao.findTreno(3));
+			voto.setTreno(dao.findTreno(1));
 			
 			return voto;
 			
 		}
+		
+		protected static void getSetValutazioni(Treno treno) {
+			System.out.println(treno.getValutazioni());
+		   }
 
 }
 
