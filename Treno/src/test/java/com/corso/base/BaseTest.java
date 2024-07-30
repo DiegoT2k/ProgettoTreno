@@ -35,8 +35,8 @@ protected static void stampa(String nomeMetodoTest) {
 		protected static Treno getTreno(TrenoDao dao) {
 			   Treno treno = new Treno();
 			   treno.setId_utente(dao.find(1));
-			   treno.setFabbrica(dao.find("IT"));
-			   treno.setBiglietti(94);
+			   treno.setFabbrica(dao.find("TN"));
+			   treno.setBiglietti(100);
 	
 			   return treno;
 	   }		
@@ -74,6 +74,10 @@ protected static void stampa(String nomeMetodoTest) {
 			locomotivaTrenord.setLunghezza(59);
 			locomotivaTrenord.setPeso(11);
 			locomotivaTrenord.setPrezzo(53);
+			locomotivaTrenord.setId_treno(dao.find(3));
+			locomotivaTrenord.setLunghezza(11);
+			locomotivaTrenord.setPeso(11);
+			locomotivaTrenord.setPrezzo(11);
 
 			locomotivaTrenord.setFabbrica(dao.find("TN"));
 			locomotivaTrenord.setTipo(getTipologia());
@@ -83,7 +87,10 @@ protected static void stampa(String nomeMetodoTest) {
 		
 		protected static Tipologia getTipologia() {
 			Tipologia tipologia = new Tipologia();
-			tipologia.setTipo("Locomotiva");
+			//tipologia.setTipo("Locomotiva");
+			//tipologia.setTipo("Passeggeri");
+			//tipologia.setTipo("Ristorante");
+			tipologia.setTipo("Cargo");
 			return tipologia;
 		}
 

@@ -11,8 +11,8 @@ public class UtenteDaoTest extends BaseTest {
 
 	public static void main(String[] args) {
 
-		//testAddCategoriaDao();
-		testSet();
+		testAddUtenteDao();
+		//testSet();
 		
 	}
 	
@@ -24,7 +24,7 @@ public class UtenteDaoTest extends BaseTest {
 		   getSetTreni(utente); 
 	}
 	
-	 public static void testAddCategoriaDao() {
+	 public static void testAddUtenteDao() {
 		   
 		   stampa("2-testAddUtenteDao");
 		   
