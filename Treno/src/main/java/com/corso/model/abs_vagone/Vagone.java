@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 
 import com.corso.model.Fabbrica;
+import com.corso.model.Tipologia;
 import com.corso.model.Treno;
 
 @Entity
@@ -31,9 +32,9 @@ public abstract class Vagone {
 	@JoinColumn(name="id_treno")
 	protected Treno id_treno;
 	
-	// Relazione con tabella tipologia
-	@Column(name="tipo")
-	protected String tipo;
+	@ManyToOne
+	@JoinColumn(name="tipo")
+	protected Tipologia tipo;
 
 	
 	
@@ -41,8 +42,6 @@ public abstract class Vagone {
 		return id_vagone;
 	}
 	
-	
-
 	public void setId_vagone(int id_vagone) {
 		this.id_vagone = id_vagone;
 	}
@@ -87,11 +86,11 @@ public abstract class Vagone {
 		this.id_treno = id_treno;
 	}
 
-	public String getTipo() {
+	public Tipologia getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(String tipo) {
+	public void setTipo(Tipologia tipo) {
 		this.tipo = tipo;
 	}
 
