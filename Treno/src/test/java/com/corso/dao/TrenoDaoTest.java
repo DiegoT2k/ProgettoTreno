@@ -1,30 +1,42 @@
 package com.corso.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.corso.base.BaseTest;
 import com.corso.config.Beans;
 import com.corso.model.Treno;
+import com.corso.model.TrenoFilter;
 
 public class TrenoDaoTest extends BaseTest{
 
 	public static void main(String[] args) {
 		
-		testAddTrenoDao();
-		
+	   BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
+	   TrenoDao dao = factory.getBean("trenoDao", TrenoDao.class);
+	   //testAddTrenoDao(dao);
+	   testFiltro(dao);
 	}
 	
-	 public static void testAddTrenoDao() {
+	 public static void testAddTrenoDao(TrenoDao dao) {
 		   
-		   stampa("2-testAddTrenoDao");
+		   stampa("1-testAddTrenoDao");
 		   
-		   BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		   TrenoDao dao = factory.getBean("trenoDao", TrenoDao.class); 
+ 
 		   Treno treno = getTreno(dao); 
 		   dao.add(treno);
 		   System.out.println(treno);
 		   
 	  }   
 	
+	 public static void testFiltro(TrenoDao dao) {
+		 stampa("2- testFiltro");
+		 TrenoFilter filter = new TrenoFilter();
+		 filter.setNum_biglietti(5);
+		 List<Treno> lista = dao.findByFilter(filter);
+		
+		 System.out.println(lista);
+	 }
 }

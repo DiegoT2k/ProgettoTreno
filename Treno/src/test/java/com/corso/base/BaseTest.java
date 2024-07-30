@@ -36,7 +36,7 @@ protected static void stampa(String nomeMetodoTest) {
 			   Treno treno = new Treno();
 			   treno.setId_utente(dao.find(1));
 			   treno.setFabbrica(dao.find("TN"));
-			   treno.setBiglietti(100);
+			   treno.setBiglietti(2);
 	
 			   return treno;
 	   }		
