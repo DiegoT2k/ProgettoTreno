@@ -24,10 +24,10 @@ protected static void stampa(String nomeMetodoTest) {
    
 		protected static Utente getUtente() {
 			   Utente utente = new Utente();
-			   utente.setNome("Paolo");
-			   utente.setCognome("Verdi");
-			   utente.setEmail("paolo@");
-			   utente.setUsername("paolo_verdi");
+			   utente.setNome("Giannu");
+			   utente.setCognome("Bo");
+			   utente.setEmail("gg@");
+			   utente.setUsername("pg");
 			   utente.setPassword("abcd");
 			   return utente;
 		   }	
@@ -70,17 +70,12 @@ protected static void stampa(String nomeMetodoTest) {
 		protected static Vagone getVagone(VagoneDao dao) {
 			Vagone locomotivaTrenord = new LocomotivaTrenord();
 			
-			locomotivaTrenord.setId_treno(dao.find(4));
-			locomotivaTrenord.setLunghezza(59);
-			locomotivaTrenord.setPeso(11);
-			locomotivaTrenord.setPrezzo(53);
+			locomotivaTrenord.setLunghezza(1);
+			locomotivaTrenord.setPeso(1);
+			locomotivaTrenord.setPrezzo(1);
 			locomotivaTrenord.setId_treno(dao.find(3));
-			locomotivaTrenord.setLunghezza(11);
-			locomotivaTrenord.setPeso(11);
-			locomotivaTrenord.setPrezzo(11);
-
 			locomotivaTrenord.setFabbrica(dao.find("TN"));
-			locomotivaTrenord.setTipo(getTipologia());
+			locomotivaTrenord.setTipo(dao.findTipo("Locomotiva"));
 			
 			return locomotivaTrenord;
 		}
@@ -90,7 +85,7 @@ protected static void stampa(String nomeMetodoTest) {
 			//tipologia.setTipo("Locomotiva");
 			//tipologia.setTipo("Passeggeri");
 			//tipologia.setTipo("Ristorante");
-			tipologia.setTipo("Cargo");
+			//tipologia.setTipo("Cargo");
 			return tipologia;
 		}
 

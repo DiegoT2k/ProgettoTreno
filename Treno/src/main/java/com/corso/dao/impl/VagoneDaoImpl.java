@@ -5,6 +5,7 @@ import javax.persistence.PersistenceContext;
 
 import com.corso.dao.VagoneDao;
 import com.corso.model.Fabbrica;
+import com.corso.model.Tipologia;
 import com.corso.model.Treno;
 import com.corso.model.Utente;
 import com.corso.model.abs_vagone.Vagone;
@@ -29,6 +30,10 @@ public class VagoneDaoImpl extends DaoImpl implements VagoneDao{
 	@Override
 	public Fabbrica find(String sigla) {
 		return manager.find(Fabbrica.class, sigla);
+	}
+	
+	public Tipologia findTipo(String tipo) {
+		return manager.find(Tipologia.class, tipo);
 	}
 	
 	
