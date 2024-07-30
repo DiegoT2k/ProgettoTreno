@@ -74,6 +74,7 @@ protected static void stampa(String nomeMetodoTest) {
 			locomotivaTrenord.setLunghezza(59);
 			locomotivaTrenord.setPeso(11);
 			locomotivaTrenord.setPrezzo(53);
+
 			locomotivaTrenord.setFabbrica(dao.find("TN"));
 			locomotivaTrenord.setTipo(getTipologia());
 			
@@ -85,7 +86,11 @@ protected static void stampa(String nomeMetodoTest) {
 			tipologia.setTipo("Locomotiva");
 			return tipologia;
 		}
-		
+
+		protected static void getSetVagone(Treno treno) {
+			System.out.println(treno.getVagoni());
+		   }
+
 		protected static Valutazione getVoto(ValutazioneDao dao) {
 			Valutazione voto = new Valutazione();
 			voto.setVoto(4);
@@ -95,6 +100,7 @@ protected static void stampa(String nomeMetodoTest) {
 			return voto;
 			
 		}
+
 }
 
 

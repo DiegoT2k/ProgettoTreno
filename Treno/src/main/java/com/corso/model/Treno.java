@@ -1,7 +1,9 @@
 package com.corso.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import com.corso.model.abs_vagone.Vagone;
+
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
@@ -22,6 +24,16 @@ public class Treno {
 	@Column(name="n_biglietti")
 	private int biglietti;
 	
+	@OneToMany(
+			mappedBy = "id_treno",
+			fetch = FetchType.EAGER
+			)
+	private Set<Vagone> vagoni;
+	
+	public Set<Vagone> getVagoni() {
+		return vagoni;
+	}
+
 	public int getBiglietti() {
 		return biglietti;
 	}
