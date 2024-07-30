@@ -69,13 +69,13 @@ protected static void stampa(String nomeMetodoTest) {
 		**/
 		protected static Vagone getVagone(VagoneDao dao) {
 			Vagone locomotivaTrenord = new LocomotivaTrenord();
-
+			
 			locomotivaTrenord.setId_treno(dao.find(4));
 			locomotivaTrenord.setLunghezza(59);
 			locomotivaTrenord.setPeso(11);
 			locomotivaTrenord.setPrezzo(53);
 			locomotivaTrenord.setFabbrica(dao.find("TN"));
-			locomotivaTrenord.setTipo("Locomotiva");
+			locomotivaTrenord.setTipo(getTipologia());
 			
 			return locomotivaTrenord;
 		}
