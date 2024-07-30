@@ -12,8 +12,8 @@ public class VagoneDaoTest extends BaseTest{
 
 	public static void main(String[] args) {
 		
-//		testAddVagone();
-		testGetVagoni();
+		testAddVagone();
+		//testGetVagoni();
 		
 	}
 	
@@ -32,7 +32,7 @@ public class VagoneDaoTest extends BaseTest{
 		   BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class); 
 		   TrenoDao daoTreno = factory.getBean("trenoDao", TrenoDao.class);
 		   
-		   Treno treno = daoTreno.findTreno(1);
+		   Treno treno = daoTreno.findTreno(3);
 		   getSetVagone(treno);
 	}
 	

@@ -8,5 +8,4 @@ import com.corso.model.vagone.LocomotivaAbs;
 public class LocomotivaItalo extends LocomotivaAbs{
 
 	
-	
 }

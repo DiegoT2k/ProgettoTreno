@@ -2,9 +2,9 @@ package com.corso.model.abs_vagone;
 
 import javax.persistence.*;
 
+
 import com.corso.model.Fabbrica;
 import com.corso.model.Treno;
-import com.corso.model.Utente;
 
 @Entity
 @Table(name="vagone")

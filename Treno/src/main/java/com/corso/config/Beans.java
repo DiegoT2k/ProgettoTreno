@@ -2,6 +2,8 @@ package com.corso.config;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -22,6 +24,8 @@ import com.corso.dao.impl.TrenoDaoImpl;
 import com.corso.dao.impl.UtenteDaoImpl;
 import com.corso.dao.impl.VagoneDaoImpl;
 import com.corso.dao.impl.ValutazioneDaoImpl;
+import com.corso.model.Fabbrica;
+import com.corso.model.vagone.impl.LocomotivaItalo;
 import com.corso.dao.UtenteDao;
 import com.corso.dao.VagoneDao;
 import com.corso.dao.ValutazioneDao;
