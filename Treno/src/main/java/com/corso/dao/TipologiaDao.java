@@ -10,4 +10,6 @@ public interface TipologiaDao {
 
 	public Tipologia add(Tipologia tipologia);
 	
+	public Tipologia find(int id);
+	
 }
