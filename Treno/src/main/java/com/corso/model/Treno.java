@@ -30,6 +30,16 @@ public class Treno {
 			)
 	private Set<Vagone> vagoni;
 	
+	@OneToMany(
+			mappedBy = "id_treno",
+			fetch = FetchType.EAGER
+			)
+	private Set<Valutazione> valutazione;
+	
+	public Set<Valutazione> getValutazioni() {
+		return valutazione;
+	}
+
 	public Set<Vagone> getVagoni() {
 		return vagoni;
 	}
