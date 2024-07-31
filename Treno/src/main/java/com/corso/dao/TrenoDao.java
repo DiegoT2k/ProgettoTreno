@@ -12,7 +12,7 @@ import com.corso.model.Utente;
 @Transactional
 public interface TrenoDao {
 	 
-	public Treno add(Treno treno);
+	public int add(Treno treno);
 	
 	public Utente find(int id);
 	

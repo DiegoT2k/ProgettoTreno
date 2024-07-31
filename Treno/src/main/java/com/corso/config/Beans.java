@@ -2,8 +2,6 @@ package com.corso.config;
 
 import javax.sql.DataSource;
 
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +22,9 @@ import com.corso.dao.impl.TrenoDaoImpl;
 import com.corso.dao.impl.UtenteDaoImpl;
 import com.corso.dao.impl.VagoneDaoImpl;
 import com.corso.dao.impl.ValutazioneDaoImpl;
-import com.corso.model.Fabbrica;
+import com.corso.model.abs_vagone.Vagone;
+import com.corso.model.builder.TrenoBuilder;
+import com.corso.model.builder.impl.TrenoItaloBuilder;
 import com.corso.model.vagone.impl.LocomotivaItalo;
 import com.corso.dao.UtenteDao;
 import com.corso.dao.VagoneDao;
@@ -47,7 +47,7 @@ public class Beans {
 	} 
 
 @Bean(name="entityManager")
-public LocalContainerEntityManagerFactoryBean  getEntityManager(){
+public LocalContainerEntityManagerFactoryBean getEntityManager(){
 	
 	LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
 	 // JDBC
@@ -58,7 +58,7 @@ public LocalContainerEntityManagerFactoryBean  getEntityManager(){
 	 
 	 // impostare il luogo dove si trovano i bean (entità del DB)
 	 //factory.setPackagesToScan(this.getClass().getPackage().getName()); 
-	 factory.setPackagesToScan("com.corso.model"); 
+	 factory.setPackagesToScan("com.corso.model", "com.corso.model.builder.impl"); 
 	 return factory; 
 } 	
 
@@ -81,7 +81,28 @@ public PlatformTransactionManager getTransactionManager(){
 
 /**** sezione DAO ****/
 
+@Bean(name="trenoItaloBuilder")
+public TrenoBuilder getTrenoItaloBuilder() {
+	return new TrenoItaloBuilder();
+}
 
+/**
+@Bean(name="locomotivaItalo")
+public Vagone getLocomotivaItalo() {
+	Vagone l = new LocomotivaItalo();
+
+//	VagoneDao dao = new VagoneDaoImpl();
+	
+	l.setLunghezza(1);
+	l.setPeso(1);
+	l.setPrezzo(1);
+	//l.setId_treno(dao.find(3));
+	//l.setFabbrica(dao.find("TN"));
+	//l.setTipo(dao.findTipo("Locomotiva"));
+	
+	return l;
+}
+**/
 @Bean(name="utenteDao") 
 public UtenteDao getUtenteDao (){
 	UtenteDao dao = new UtenteDaoImpl();

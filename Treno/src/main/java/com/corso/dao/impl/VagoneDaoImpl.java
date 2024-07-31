@@ -32,6 +32,7 @@ public class VagoneDaoImpl extends DaoImpl implements VagoneDao{
 		return manager.find(Fabbrica.class, sigla);
 	}
 	
+	@Override
 	public Tipologia findTipo(String tipo) {
 		return manager.find(Tipologia.class, tipo);
 	}

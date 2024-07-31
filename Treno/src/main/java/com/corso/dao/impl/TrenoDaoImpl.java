@@ -1,6 +1,7 @@
 package com.corso.dao.impl;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -13,6 +14,8 @@ import com.corso.model.Fabbrica;
 import com.corso.model.Treno;
 import com.corso.model.TrenoFilter;
 import com.corso.model.Utente;
+import com.corso.model.abs_vagone.Vagone;
+
 import javax.persistence.*;
 
 public class TrenoDaoImpl implements TrenoDao{
@@ -22,11 +25,12 @@ public class TrenoDaoImpl implements TrenoDao{
 	private EntityManager manager; 
 	
 	@Override
-	public Treno add(Treno treno) {
+	public int add(Treno treno) {
 		manager.persist(treno);
-		return treno;
+		return treno.getId_treno();
 	}
 
+	
 	@Override
 	public Utente find(int id) {
 		return manager.find(Utente.class, id);
@@ -90,5 +94,17 @@ public class TrenoDaoImpl implements TrenoDao{
 		List<Treno> result = query.getResultList();
 		return result;
 	}
+	
+	public double calcolaPrezzo(Treno t) {
+		
+		Set<Vagone> set = t.getVagoni();
+		double tot = 0;
+		for(Vagone v : set) {
+			tot += v.getPrezzo();
+		}
+		
+		return tot;
+	}
+
 
 }
