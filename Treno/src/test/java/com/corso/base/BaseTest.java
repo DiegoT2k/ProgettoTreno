@@ -24,27 +24,27 @@ protected static void stampa(String nomeMetodoTest) {
    
 		protected static Utente getUtente() {
 			   Utente utente = new Utente();
-			   utente.setNome("Giannu");
-			   utente.setCognome("Bo");
-			   utente.setEmail("gg@");
-			   utente.setUsername("pg");
-			   utente.setPassword("abcd");
+			   utente.setNome("Eren");
+			   utente.setCognome("Jaeger");
+			   utente.setEmail("erenj@gmail.com");
+			   utente.setUsername("ErenIlGigante");
+			   utente.setPassword("Rumbling");
 			   return utente;
 		   }	
 		   
 		protected static Treno getTreno(TrenoDao dao) {
 			   Treno treno = new Treno();
-			   treno.setId_utente(dao.find(1));
-			   treno.setFabbrica(dao.find("TN"));
-			   treno.setBiglietti(2);
+			   treno.setId_utente(dao.find(12));
+			   treno.setFabbrica(dao.find("ITA"));
+			   treno.setBiglietti(16);
 	
 			   return treno;
 	   }		
 		
 		protected static Fabbrica getFabbrica() {
 			Fabbrica fabbrica = new Fabbrica();
-			fabbrica.setSigla("TN");
-			fabbrica.setFabbrica("Trenord");
+			fabbrica.setSigla("FR");
+			fabbrica.setFabbrica("Frecciarossa");
 			
 			return fabbrica;
 		}
@@ -53,27 +53,27 @@ protected static void stampa(String nomeMetodoTest) {
 			System.out.println(utente.getTreni());
 		   }	
 		
-		/**
-		protected static Vagone getVagone(VagoneDao dao) {
-			Vagone locomotivaItalo = new LocomotivaItalo();
+		
+//		protected static Vagone getVagone(VagoneDao dao) {
+//			Vagone locomotivaItalo = new LocomotivaItalo();
+//
+//			locomotivaItalo.setId_treno(dao.find(22));
+//			locomotivaItalo.setLunghezza(14);
+//			locomotivaItalo.setPeso(40);
+//			locomotivaItalo.setPrezzo(130);
+//			locomotivaItalo.setFabbrica(dao.find("ITA"));
+//			locomotivaItalo.setTipo(dao.findTipo("Locomotiva"));
+//			
+//			return locomotivaItalo;
+//		}
 
-			locomotivaItalo.setId_treno(dao.find(3));
-			locomotivaItalo.setLunghezza(100);
-			locomotivaItalo.setPeso(10);
-			locomotivaItalo.setPrezzo(24);
-			locomotivaItalo.setFabbrica(dao.find("IT"));
-			locomotivaItalo.setTipo("Locomotiva");
-			
-			return locomotivaItalo;
-		}
-		**/
 		protected static Vagone getVagone(VagoneDao dao) {
 			Vagone locomotivaTrenord = new LocomotivaTrenord();
 			
-			locomotivaTrenord.setLunghezza(1);
-			locomotivaTrenord.setPeso(1);
-			locomotivaTrenord.setPrezzo(1);
-			locomotivaTrenord.setId_treno(dao.find(3));
+			locomotivaTrenord.setLunghezza(40);
+			locomotivaTrenord.setPeso(23);
+			locomotivaTrenord.setPrezzo(100);
+			locomotivaTrenord.setId_treno(dao.find(17));
 			locomotivaTrenord.setFabbrica(dao.find("TN"));
 			locomotivaTrenord.setTipo(dao.findTipo("Locomotiva"));
 			
@@ -82,10 +82,10 @@ protected static void stampa(String nomeMetodoTest) {
 		
 		protected static Tipologia getTipologia() {
 			Tipologia tipologia = new Tipologia();
-			//tipologia.setTipo("Locomotiva");
-			//tipologia.setTipo("Passeggeri");
-			//tipologia.setTipo("Ristorante");
-			//tipologia.setTipo("Cargo");
+//			tipologia.setTipo("Locomotiva");
+//			tipologia.setTipo("Passeggeri");
+//			tipologia.setTipo("Ristorante");
+//			tipologia.setTipo("Cargo");
 			return tipologia;
 		}
 
