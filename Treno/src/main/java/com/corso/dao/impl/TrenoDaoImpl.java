@@ -2,6 +2,7 @@ package com.corso.dao.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -26,11 +27,12 @@ public class TrenoDaoImpl implements TrenoDao{
 	private EntityManager manager; 
 	
 	@Override
-	public Treno add(Treno treno) {
+	public int add(Treno treno) {
 		manager.persist(treno);
-		return treno;
+		return treno.getId_treno();
 	}
 
+	
 	@Override
 	public Utente find(int id) {
 		return manager.find(Utente.class, id);
@@ -180,6 +182,18 @@ public class TrenoDaoImpl implements TrenoDao{
 	
 		return result;
 	}
+	
+	public double calcolaPrezzo(Treno t) {
+		
+		Set<Vagone> set = t.getVagoni();
+		double tot = 0;
+		for(Vagone v : set) {
+			tot += v.getPrezzo();
+		}
+		
+		return tot;
+	}
+
 
 	@Override
 	public List<Utente> findByName(String nome) {

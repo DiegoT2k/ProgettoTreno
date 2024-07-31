@@ -3,6 +3,8 @@ package com.corso.model.builder;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.corso.model.abs_vagone.Vagone;
@@ -15,10 +17,11 @@ import com.corso.exception.SoloCargoException;
 import com.corso.exception.VagoneException;
 import com.corso.model.Treno;
 
+@Transactional
 public abstract class TrenoBuilder {
 	
-	@Autowired
-	private Treno treno;
+	//@Autowired
+	//private Treno treno;
 	
 
 	/**
@@ -35,19 +38,19 @@ public abstract class TrenoBuilder {
 	}
 	**/
 	
-	public Treno costruisciTreno(String vagoni){
+	public List<Vagone> costruisciTreno(String vagoni, int id_treno){
 		
-		// Treno treno = new Treno();	
+		//Treno treno = new Treno();	
 		
 		List<Vagone> lista = new ArrayList<Vagone>();
 		
-		checkStringa(vagoni);
+		//checkStringa(vagoni);
 
 		for(char vagone : vagoni.toCharArray()){
 			switch (vagone) {
 			case 'H':
 				// treno.addVagone( getLocomotiva() );
-				lista.add( getLocomotiva() );
+				lista.add( getLocomotiva(id_treno) );
 				break;
 			case 'P':
 				// treno.addVagone( getPasseggeri() );
@@ -67,13 +70,13 @@ public abstract class TrenoBuilder {
 		
 		//treno.setVagoni(lista);
 		
-		for(Vagone v : lista) {
-			System.out.println(v);
-		}
+		//for(Vagone v : lista) {
+			//System.out.println(v);
+		//}
 		
-		return treno;
+		return lista;
 	}
-
+/**
 	public void checkStringa(String vagoni){
 		for(char c : vagoni.toCharArray())
 			if(!(c == 'H' || c == 'P' || c == 'R' || c == 'C'))
@@ -99,8 +102,9 @@ public abstract class TrenoBuilder {
 			throw new NumRistorantiException(vagoni, "Errore ristoranti");
 				
 	}
+	**/
 	
-	abstract protected Vagone getLocomotiva();
+	abstract protected Vagone getLocomotiva(int id);
 	abstract protected Vagone getPasseggeri();
 	abstract protected Vagone getCargo();
 	abstract protected Vagone getRistorante();

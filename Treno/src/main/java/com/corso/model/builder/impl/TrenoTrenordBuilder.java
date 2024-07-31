@@ -6,7 +6,7 @@ import com.corso.model.builder.TrenoBuilder;
 public class TrenoTrenordBuilder extends TrenoBuilder{
 
 	@Override
-	protected Vagone getLocomotiva() {
+	protected Vagone getLocomotiva(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

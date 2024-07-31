@@ -36,8 +36,6 @@ public abstract class Vagone {
 	@JoinColumn(name="tipo")
 	protected Tipologia tipo;
 
-	
-	
 	public int getId_vagone() {
 		return id_vagone;
 	}
