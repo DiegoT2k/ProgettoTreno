@@ -2,6 +2,8 @@ package com.corso.dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -23,18 +25,29 @@ public class TrenoDaoTest extends BaseTest{
 	 public static void testAddTrenoDao(TrenoDao dao) {
 		   
 		   stampa("1-testAddTrenoDao");
-		   
- 
 		   Treno treno = getTreno(dao); 
 		   dao.add(treno);
 		   System.out.println(treno);
 		   
 	  }   
 	
+	 @Transactional
 	 public static void testFiltro(TrenoDao dao) {
 		 stampa("2- testFiltro");
 		 TrenoFilter filter = new TrenoFilter();
-		 filter.setNum_biglietti(5);
+//		 filter.setBigliettiMin(null);
+//		 filter.setBigliettiMax(50);
+//		 
+		 //Non trova prezzo, lunghezza e peso perché sono Attributi in vagone
+		 filter.setPrezzoMin(null);
+		 filter.setPrezzoMax(null);
+		 
+		 filter.setLunghezzaMin(null);
+		 filter.setLunghezzaMax(null);
+		 
+		 filter.setPesoMin(210.0);
+		 filter.setPesoMax(null);
+		 
 		 List<Treno> lista = dao.findByFilter(filter);
 		
 		 System.out.println(lista);

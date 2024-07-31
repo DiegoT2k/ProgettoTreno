@@ -23,4 +23,6 @@ public interface TrenoDao {
 	public List<Treno> findAll();
 	
 	public List<Treno> findByFilter(TrenoFilter filter);
+	
+	public List<Utente> findByName(String nome);
 }
